@@ -7,10 +7,17 @@
 </head>
 <body>
     <button id="generate-pdf">Generate PDF</button>
+    <button id="trigger-event">Trigger Event</button>
 
     <script>
         document.getElementById('generate-pdf').addEventListener('click', function() {
             window.open('/create-pdf');
+        });
+
+        document.getElementById('trigger-event').addEventListener('click', function() {
+            fetch('/trigger-event')
+                .then(response => response.text())
+                .then(data => alert(data));
         });
     </script>
 </body>
