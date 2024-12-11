@@ -24,7 +24,7 @@ npm start
 
 The server will be running on `http://localhost:3000`.
 
-## Endpoint
+## Endpoints
 
 ### `GET /create-pdf`
 
@@ -34,3 +34,9 @@ Example request:
 ```sh
 curl http://localhost:3000/create-pdf --output hello.pdf
 ```
+
+### `GET /`
+
+This endpoint serves a page with a button that calls `/create-pdf` to generate a PDF. When the button is clicked, the generated PDF will open in a new tab.
+
+To use this endpoint, open your browser and navigate to `http://localhost:3000/`. Click the "Generate PDF" button to generate and view the PDF.
