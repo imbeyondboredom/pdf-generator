@@ -19,7 +19,7 @@
                 .then(response => response.blob())
                 .then(blob => {
                     const event = new CustomEvent('pdfGenerated', { detail: blob });
-                    document.dispatchEvent(event);
+                    window.dispatchEvent(event);
                 });
         });
     </script>
