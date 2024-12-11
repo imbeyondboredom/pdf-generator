@@ -16,11 +16,11 @@
 
         document.getElementById('trigger-event').addEventListener('click', function() {
             fetch('/create-pdf')
-                .then(response => response.blob())
-                .then(blob => {
+                .then(response => response.arrayBuffer())
+                .then(buffer => {
                     console.log("firing events");
-                    console.log(blob);
-                    window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({ action:"pdfGenerated", type: 'pdfGenerated', pdf: blob }));
+                    const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+                    window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({ action:"pdfGenerated", type: 'pdfGenerated', pdf: base64 }));
                     window.postMessage({ type: 'pdfGenerated', pdf: blob }, '*');
                 });
         });
