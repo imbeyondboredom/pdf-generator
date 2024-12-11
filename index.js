@@ -1,7 +1,10 @@
 const express = require('express');
 const { PDFDocument } = require('pdf-lib');
+const path = require('path');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/create-pdf', async (req, res) => {
   const pdfDoc = await PDFDocument.create();
@@ -16,6 +19,10 @@ app.get('/create-pdf', async (req, res) => {
 
   res.setHeader('Content-Type', 'application/pdf');
   res.send(Buffer.from(pdfBytes));
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
