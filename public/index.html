@@ -15,9 +15,12 @@
         });
 
         document.getElementById('trigger-event').addEventListener('click', function() {
-            fetch('/trigger-event')
-                .then(response => response.text())
-                .then(data => alert(data));
+            fetch('/create-pdf')
+                .then(response => response.blob())
+                .then(blob => {
+                    const event = new CustomEvent('pdfGenerated', { detail: blob });
+                    document.dispatchEvent(event);
+                });
         });
     </script>
 </body>
