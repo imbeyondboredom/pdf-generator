@@ -37,6 +37,6 @@ curl http://localhost:3000/create-pdf --output hello.pdf
 
 ### `GET /`
 
-This endpoint serves a page with buttons that call `/create-pdf` to generate PDFs. When the "Generate PDF" button is clicked, the generated PDF will open in a new tab. When the "Trigger Event" button is clicked, the PDF will be generated, added to an event, and the event will be triggered.
+This endpoint serves a page with buttons that call `/create-pdf` to generate PDFs. When the "Generate PDF" button is clicked, the generated PDF will open in a new tab. When the "Trigger Event" button is clicked, the PDF will be generated, added to an event, and the event will be triggered using `postMessage`.
 
-To use this endpoint, open your browser and navigate to `http://localhost:3000/`. Click the "Generate PDF" button to generate and view the PDF. Click the "Trigger Event" button to generate the PDF, add it to an event, and trigger the event.
+To use this endpoint, open your browser and navigate to `http://localhost:3000/`. Click the "Generate PDF" button to generate and view the PDF. Click the "Trigger Event" button to generate the PDF, add it to an event, and trigger the event using `postMessage`.
