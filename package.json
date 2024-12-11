@@ -1,0 +1,13 @@
+{
+  "name": "pdf-streaming-server",
+  "version": "1.0.0",
+  "description": "A Node.js server that streams a generated PDF to the response",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pdf-lib": "^1.17.1"
+  }
+}
