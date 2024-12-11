@@ -27,7 +27,7 @@
         });
 
         document.getElementById('generate-pdf-from-url').addEventListener('click', function() {
-            fetch('https://pa529.com/pdf/gsp/GSP-Disclosure-statement.pdf')
+            fetch('/get-pdf')
                 .then(response => response.arrayBuffer())
                 .then(buffer => {
                     console.log("firing events");

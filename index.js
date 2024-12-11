@@ -21,6 +21,12 @@ app.get('/create-pdf', async (req, res) => {
   res.send(Buffer.from(pdfBytes));
 });
 
+app.get('/get-pdf', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'GSP-Disclosure-statement.pdf');
+  res.setHeader('Content-Type', 'application/pdf');
+  res.sendFile(filePath);
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
