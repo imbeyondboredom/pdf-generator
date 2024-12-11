@@ -18,7 +18,7 @@
             fetch('/create-pdf')
                 .then(response => response.blob())
                 .then(blob => {
-                    const event = new CustomEvent('pdfGenerated', { detail: blob });
+                    const event = new CustomEvent('message', { detail: blob });
                     window.dispatchEvent(event);
                 });
         });
