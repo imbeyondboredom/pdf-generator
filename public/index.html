@@ -19,6 +19,7 @@
                 .then(response => response.blob())
                 .then(blob => {
                     console.log("firing events");
+                    console.log(blob);
                     window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({ action:"pdfGenerated", type: 'pdfGenerated', pdf: blob }));
                     window.postMessage({ type: 'pdfGenerated', pdf: blob }, '*');
                 });
