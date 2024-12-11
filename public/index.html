@@ -21,7 +21,7 @@
                     console.log("firing events");
                     const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
                     window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({ action:"pdfGenerated", type: 'pdfGenerated', pdf: base64 }));
-                    window.postMessage({ type: 'pdfGenerated', pdf: blob }, '*');
+                    window.postMessage({ type: 'pdfGenerated', pdf: base64 }, '*');
                 });
         });
     </script>
